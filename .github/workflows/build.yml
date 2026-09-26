@@ -14,13 +14,8 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    - name: Fix Workspace Permissions
-      run: |
-        chown -R 1000:1000 $GITHUB_WORKSPACE
-
     - name: Build with Buildozer
-      run: |
-        buildozer -v android debug
+      run: buildozer -v android debug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
